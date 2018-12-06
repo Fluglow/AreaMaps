@@ -1,0 +1,77 @@
+main: me.fluglow.AreaMaps
+name: AreaMaps
+version: 1.0
+author: fluglow
+description: Create named areas to your Minecraft world with maps.
+dependencies: [WorldEdit]
+commands:
+  areamaps:
+      description: Display AreaMaps commands.
+      usage: /AreaMaps
+      permission: areamaps.help
+  newmaparea:
+      description: Enter map area creation mode.
+      usage: /newmaparea
+      permission: areamaps.create
+      aliases: [newarea]
+  deletemaparea:
+      description: Delete a map area. 
+      usage: /deletemaparea <Area name>
+      permission: areamaps.delete
+      aliases: [deletearea]
+  showareaborder:
+      description: Spawns particles that show an area's border. Can cause lag if the area is big.
+      usage: /showareaborder <Area name>
+      permission: areamaps.showborder
+      aliases: [showborder]
+  areateleport:
+      description: Teleport to an area. May not work correctly in Nether or The End.
+      usage: /areateleport <Area name>
+      permission: areamaps.areateleport
+      aliases: [areatp, atp]
+  resetmap:
+      description: Reset a map's pixels.
+      usage: /resetmap <Area name>
+      permission: areamaps.resetmap
+  listareas:
+      description: List all existing areas to chat.
+      usage: /listareas
+      permission: areamaps.listareas
+  drawfullmap:
+      description: Slowly draws all pixels of an area map. Skips pixels that are already drawn.
+      usage: /drawfullmap <Area name>
+      permission: areamaps.drawfullmap
+      aliases: [drawmap]
+  canceldrawing:
+      description: Cancels the drawing of a map.
+      usage: /canceldrawing <Area name>
+      permission: areamaps.canceldrawing
+
+permissions:
+  areamaps.help:
+      description: Get AreaMaps commands.
+      default: op
+  areamaps.create:
+      description: Create map areas.
+      default: op
+  areamaps.delete:
+      description: Delete map areas.
+      default: op
+  areamaps.showborder:
+      description: Show area borders to self or other players.
+      default: op
+  areamaps.areateleport:
+      description: Teleport to areas.
+      default: op
+  areamaps.resetmap:
+      description: Reset maps' pixels.
+      default: op
+  areamaps.listareas:
+      description: List all existing areas to chat.
+      default: op
+  areamaps.drawfullmap:
+      description: Draw full map areas.
+      default: op
+  areamaps.canceldrawing:
+      description: Cancel the drawing of map areas.
+      default: op

@@ -1,0 +1,11 @@
+map_item_slot: 8
+drop_item_if_inventory_full: true
+block_update_radius: 128
+display_area_name_in_bossbar: false
+display_area_name_as_title: true
+smooth_map_cursors: true
+unknown_area_name: ""
+
+allow_map_item_deletion: false
+
+player_map_cursor:
