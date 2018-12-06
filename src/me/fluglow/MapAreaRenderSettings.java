@@ -103,23 +103,6 @@ public class MapAreaRenderSettings implements ConfigurationSerializable {
 		return darkenPixels;
 	}
 
-	/* Removed until someone asks for it because it seems useless.
-	public boolean showsTeammates()
-	{
-		return teammateCursor != null;
-	}
-
-	public void showTeammates(MapCursor.Type teammateCursor)
-	{
-		this.teammateCursor = teammateCursor;
-	}
-
-	public void hideTeammates()
-	{
-		this.teammateCursor = null;
-	}
-	*/
-
 	boolean showsAllPlayers()
 	{
 		return showOtherPlayers;

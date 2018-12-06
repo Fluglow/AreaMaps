@@ -30,10 +30,7 @@ public class MapAreaRenderer extends MapRenderer {
 	private Map<Integer, ASyncMapRenderer> asyncRenderers = new HashMap<>();
 
 	private final Map<Integer, MapAreaRenderSettings> areaRenderSettings;
-	/*
-	Fix issue?: Cursors freeze when another map is initialized.
-	This issue seems to be client sided, since cursors freeze even when map initialization is completely blocked server-side.
-	 */
+
 	MapAreaRenderer(WorldMap worldMap, Map<Integer, MapAreaRenderData> rendererDataMap, Map<Integer, MapAreaRenderSettings> settings) {
 		super(true);
 		this.worldMap = worldMap;
@@ -231,17 +228,6 @@ public class MapAreaRenderer extends MapRenderer {
 				double drawableBlockPosX = (mapCenterX / blocksPerPixel + drawablePixelX - 64) * blocksPerPixel;
 				double drawableBlockPosZ = (mapCenterZ / blocksPerPixel + drawablePixelZ - 64) * blocksPerPixel;
 
-				//highestBlock.setY(world.getHighestBlockYAt(highestBlock));
-				/*
-				int drawableBlockX = highestBlock.getBlockX(); //Get BlockX and Z
-				int drawableBlockZ = highestBlock.getBlockZ();
-
-				if (!world.isChunkLoaded(drawableBlockX >> 4, drawableBlockZ >> 4))
-				{
-					continue;
-				}
-				*/
-
 				int renderSquarePosX = drawablePixelX - entityMapX;
 				int renderSquarePosZ = drawablePixelZ - entityMapZ;
 
@@ -311,15 +297,6 @@ public class MapAreaRenderer extends MapRenderer {
 					b0 = 0;
 				}
 
-				/* Example of preferring a block.
-
-				if(hashmultiset.contains(Material.STONE.r()))
-				{
-					hashmultiset.clear();
-					hashmultiset.add(Material.STONE.r());
-				}
-
-				*/
 				MaterialMapColor materialmapcolor = Iterables.getFirst(Multisets.copyHighestCountFirst(hashmultiset), MaterialMapColor.c); //Get the material color from the Multiset that was built or default to nothing.
 				if (materialmapcolor == MaterialMapColor.o) {
 					d2 = (double) waterDepth * 0.1D + (double) (drawablePixelX + drawablePixelZ & 1) * 0.2D;
@@ -365,10 +342,7 @@ public class MapAreaRenderer extends MapRenderer {
 		cursor.setX((byte)x);
 		cursor.setY((byte)y);
 
-		/*
-		Cursor notes:
-		RED_MARKER Is reversed, flip rotation when using.
-		 */
+		//RED_MARKER Is reversed, flip rotation when using.
 		cursor.setType(settings.getPlayerCursor());
 		if(cursor.getType() == MapCursor.Type.RED_MARKER)
 		{
